@@ -205,17 +205,6 @@ const handleSubmit = async (e) => {
               </Typography>
             </Box>
 
-            <Box sx={{ mt: 3, p: 2, bgcolor: 'grey.100', borderRadius: 1 }}>
-              <Typography variant="caption" color="text.secondary" display="block" gutterBottom>
-                <strong>Demo Credentials:</strong>
-              </Typography>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Admin: admin / admin123
-              </Typography>
-              <Typography variant="caption" color="text.secondary" display="block">
-                Employee: john.smith / password123
-              </Typography>
-            </Box>
           </Box>
         </Paper>
       </Box>
