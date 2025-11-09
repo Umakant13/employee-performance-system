@@ -342,7 +342,7 @@ const EmployeeForm = () => {
                         value={formData.salary}
                         onChange={handleChange}
                         error={Boolean(errors.salary)}
-                        helperText={errors.salary || 'Annual salary in RS'}
+                        helperText={errors.salary || 'Annual salary in USD'}
                         InputProps={{
                           startAdornment: (
                             <InputAdornment position="start">
