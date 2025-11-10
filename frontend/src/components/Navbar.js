@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Star } from '@mui/icons-material';
 import {
   AppBar,
   Toolbar,
@@ -66,6 +67,8 @@ const Navbar = () => {
         { text: 'Dashboard', icon: <Dashboard />, path: '/admin/dashboard' },
         { text: 'Employees', icon: <People />, path: '/admin/employees' },
         { text: 'Analytics', icon: <Assessment />, path: '/admin/analytics' },
+        { text: 'Feedback', icon: <Star />, path: '/admin/feedback' },
+
       ]
     : [{ text: 'Dashboard', icon: <Dashboard />, path: '/employee/dashboard' }];
 
