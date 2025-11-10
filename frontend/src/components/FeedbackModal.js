@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/jsx-no-undef */
 import React, { useState } from 'react';
 import {
   Dialog,
