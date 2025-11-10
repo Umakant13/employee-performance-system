@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material';
 import { AuthProvider } from './contexts/AuthContext';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
-
+import FeedbackManagement from './pages/FeedbackManagement';
 // Pages
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -109,6 +109,14 @@ function App() {
                   </PrivateRoute>
                 }
               />
+            <Route
+              path="/admin/feedback"
+              element={
+                <PrivateRoute adminOnly>
+                  <FeedbackManagement />
+                </PrivateRoute>
+              }
+            />
 
               {/* Employee Routes */}
               <Route
@@ -119,6 +127,8 @@ function App() {
                   </PrivateRoute>
                 }
               />
+
+
 
               {/* Default Redirects */}
               <Route path="/" element={<Navigate to="/login" replace />} />
