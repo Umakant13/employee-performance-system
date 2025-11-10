@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
+import FeedbackModal from '../components/FeedbackModal';
+import { Feedback as FeedbackIcon } from '@mui/icons-material';
 import {
   Container,
   Paper,
@@ -108,6 +110,30 @@ const EmployeeList = () => {
       setLoading(false);
     }
   };
+
+  const [feedbackDialog, setFeedbackDialog] = useState({
+  open: false,
+  employee: null,
+});
+
+  const handleAddFeedback = (employee) => {
+  setFeedbackDialog({
+    open: true,
+    employee: employee,
+  });
+};
+
+const closeFeedbackDialog = () => {
+  setFeedbackDialog({
+    open: false,
+    employee: null,
+  });
+};
+
+const handleFeedbackSuccess = () => {
+  // Optionally reload employee list or show success message
+  alert('Feedback submitted successfully!');
+};
 
   const handleDelete = async () => {
     try {
@@ -418,6 +444,17 @@ const EmployeeList = () => {
                               <Edit />
                             </IconButton>
                           </Tooltip>
+                            {/* ADD THIS - Feedback Button */}
+                          <Tooltip title="Add Feedback">
+                            <IconButton
+                              size="small"
+                              sx={{ color: '#43e97b' }}
+                              onClick={() => handleAddFeedback(employee)}
+                            >
+                              <FeedbackIcon />
+                            </IconButton>
+                          </Tooltip>
+
                           <Tooltip title="Run Prediction">
                             <IconButton
                               size="small"
@@ -710,6 +747,14 @@ const EmployeeList = () => {
             )}
           </DialogActions>
         </Dialog>
+
+              {/* Feedback Modal */}
+<FeedbackModal
+  open={feedbackDialog.open}
+  onClose={closeFeedbackDialog}
+  employee={feedbackDialog.employee}
+  onSuccess={handleFeedbackSuccess}
+/>
       </Container>
     </Box>
   );
